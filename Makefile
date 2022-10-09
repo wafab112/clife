@@ -24,7 +24,7 @@ build/clife: ${OBJS}
 	${CXX} $^ -o $@ ${LDFLAGS} ${TEST_LDFLAGS}
 
 ${OBJS}:%.o: %.cpp
-	${CXX} ${CFLAGS} -c $^ -o $@
+	${CXX} ${CFLAGS} -c $< -o $@
 
 TEST_CFLAGS = -Itests/lib/doctest/include
 TEST_LDFLAGS = 
@@ -39,7 +39,7 @@ build/run_tests: ${TEST_OBJS}
 	${CXX} $^ -o $@ ${LDFLAGS} ${TEST_LDFLAGS}
 
 ${TEST_OBJS}:%.o: %.cpp
-	${CXX} ${CFLAGS} ${TEST_CFLAGS} -c $^ -o $@
+	${CXX} ${CFLAGS} ${TEST_CFLAGS} -c $< -o $@
 
 clean:
 	rm -r build

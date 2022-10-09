@@ -1,48 +1,46 @@
 CXX = g++
 
-sdir = ./src
-bdir = ./build
-ldir = ./lib
-idir = ./include
+CFLAGS = -std=c++11 -O3
+CFLAGS += -I lib/glfw/include 
+LDFLAGS = lib/glfw/src/libglfw3.a
 
-CFLAGS = -std=c++11 -I ${idir}
+SRC = $(wildcard src/*.cpp)
+OBJS = $(SRC:.cpp=.o)
 
-_target = clife
-_entry = main
+.PHONY: run lib all test clean dirs
 
-target = ${bdir}/${_target}
-entry = ${sdir}/${_entry}.cpp
+all: dirs lib build/clife
 
-libs = 
+dirs:
+	mkdir -p build
 
-.PHONY: all
-all: ${bdir} ${target}
+lib:
+	cd lib/glfw && cmake . && make
 
-.PHONY: run
 run: all
-	${target}
+	./build/clife	
 
-${target}: ${bdir}/${_entry}.o ${bdir}
-	${CXX} ${CFLAGS} $< -o $@ ${libs}
+build/clife: ${OBJS}
+	${CXX} ${LDFLAGS} $^ -o $@
 
-${bdir}/${_entry}.o: ${entry}
-	${CXX} ${CFLAGS} -c $< -o $@
+${OBJS}:%.o: %.cpp
+	${CXX} ${CFLAGS} -c $^ -o $@
 
-${bdir}:
-	mkdir ${bdir}
+TEST_CFLAGS = -Itests/lib/doctest/include
+TEST_LDFLAGS = 
 
-tdir = ./tests
-tentry = ${tdir}/src/main.cpp
-tlibs = 
+TEST_SRC = $(wildcard tests/src/*.cpp)
+TEST_OBJS = $(TEST_SRC:.cpp=.o)
 
-.PHONY: test
-test: ${bdir}/run_tests
-	${bdir}/run_tests
+test: dirs lib build/run_tests
+	build/run_tests
 
-${bdir}/run_tests: ${tentry}
-	${CXX} ${CFLAGS} -I ${tdir}/include ${tentry} -o ${bdir}/run_tests ${libs} ${tlibs}
+build/run_tests: ${TEST_OBJS}
+	${CXX} ${LDFLAGS} ${TEST_LDFLAGS} $^ -o $@
 
-.PHONY: clean
+${TEST_OBJS}:%.o: %.cpp
+	${CXX} ${CFLAGS} ${TEST_CFLAGS} -c $^ -o $@
+
 clean:
 	rm -r build
-	rm ${tdir}/run
+	cd lib/glfw && make clean

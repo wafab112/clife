@@ -18,6 +18,8 @@ jobs:
       
     - name: Install dependencies
       run: | 
+        sudo apt update
+        sudo apt install libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev
         make
       
     - name: Run test

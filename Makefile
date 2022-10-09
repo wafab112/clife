@@ -23,7 +23,7 @@ run: all
 	${target}
 
 ${target}: ${bdir}/${_entry}.o ${bdir}
-	${CXX} ${CFLAGS} $< -o $@ ${ldir}/*
+	${CXX} ${CFLAGS} $< -o $@ ${libs}
 
 ${bdir}/${_entry}.o: ${entry}
 	${CXX} ${CFLAGS} -c $< -o $@

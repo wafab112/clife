@@ -36,11 +36,11 @@ tentry = ${tdir}/src/main.cpp
 tlibs = 
 
 .PHONY: test
-test: ${tdir}/run
-	${tdir}/run
+test: ${bdir}/run_tests
+	${bdir}/run_tests
 
-${tdir}/run: ${tentry}
-	${CXX} ${CFLAGS} -I ${tdir}/include ${tentry} -o ${tdir}/run ${libs} ${tlibs}
+${bdir}/run_tests: ${tentry}
+	${CXX} ${CFLAGS} -I ${tdir}/include ${tentry} -o ${bdir}/run_tests ${libs} ${tlibs}
 
 .PHONY: clean
 clean:

@@ -14,13 +14,16 @@ _entry = main
 target = ${bdir}/${_target}
 entry = ${sdir}/${_entry}.cpp
 
-all: ${bdir} ${target}
+run: all
+	${target}
 
-${bdir}:
-	mkdir ${bdir}
+all: ${bdir} ${target}
 
 ${target}: ${bdir}/${_entry}.o ${bdir}
 	${CXX} ${CFLAGS} $< -o $@
 
 ${bdir}/${_entry}.o: ${entry}
 	${CXX} ${CFLAGS} -c $< -o $@
+
+${bdir}:
+	mkdir ${bdir}

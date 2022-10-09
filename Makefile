@@ -21,7 +21,7 @@ run: all
 	./build/clife	
 
 build/clife: ${OBJS}
-	${CXX} ${LDFLAGS} $^ -o $@
+	${CXX} $^ -o $@ ${LDFLAGS} ${TEST_LDFLAGS}
 
 ${OBJS}:%.o: %.cpp
 	${CXX} ${CFLAGS} -c $^ -o $@
@@ -36,7 +36,7 @@ test: dirs lib build/run_tests
 	build/run_tests
 
 build/run_tests: ${TEST_OBJS}
-	${CXX} ${LDFLAGS} ${TEST_LDFLAGS} $^ -o $@
+	${CXX} $^ -o $@ ${LDFLAGS} ${TEST_LDFLAGS}
 
 ${TEST_OBJS}:%.o: %.cpp
 	${CXX} ${CFLAGS} ${TEST_CFLAGS} -c $^ -o $@

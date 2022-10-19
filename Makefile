@@ -17,7 +17,7 @@ endif
 
 # adds libdl to linker
 ifeq ($(UNAME_S), Linux)
-	LDFLAGS += -ldl -lm -lGL -lGLU -lX11
+	LDFLAGS += -ldl -lm -lGL -lGLU -lX11 -lpthread
 endif
 
 .PHONY: run lib all test clean dirs

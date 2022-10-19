@@ -1,11 +1,19 @@
+UNAME_S = $(shell uname -s)
+
 CXX = g++
 
 CFLAGS = -std=c++11 -O3
 CFLAGS += -I lib/glfw/include 
+
 LDFLAGS = lib/glfw/src/libglfw3.a
 
 SRC = $(wildcard src/*.cpp)
 OBJS = $(SRC:.cpp=.o)
+
+# adds macOS frameworks, needed by GLFW, to linker (see https://www.glfw.org/docs/3.4/build_guide.html#build_link_osx)
+ifeq (${UNAME_S}, Darwin)
+	LDFLAGS += -framework OpenGL -framework IOKit -framework CoreVideo -framework Cocoa
+endif
 
 .PHONY: run lib all test clean dirs
 
@@ -21,7 +29,7 @@ run: all
 	./build/clife	
 
 build/clife: ${OBJS}
-	${CXX} $^ -o $@ ${LDFLAGS} ${TEST_LDFLAGS}
+	${CXX} $^ -o $@ ${LDFLAGS}
 
 ${OBJS}:%.o: %.cpp
 	${CXX} ${CFLAGS} -c $< -o $@
@@ -43,4 +51,4 @@ ${TEST_OBJS}:%.o: %.cpp
 
 clean:
 	rm -r build
-	cd lib/glfw && make clean
+	

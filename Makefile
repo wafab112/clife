@@ -15,6 +15,11 @@ ifeq (${UNAME_S}, Darwin)
 	LDFLAGS += -framework OpenGL -framework IOKit -framework CoreVideo -framework Cocoa
 endif
 
+# adds libdl to linker
+ifeq ($(UNAME_S), Linux)
+	LDFLAGS += -ldl
+endif
+
 .PHONY: run lib all test clean dirs
 
 all: dirs lib build/clife

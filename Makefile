@@ -3,9 +3,10 @@ UNAME_S = $(shell uname -s)
 CXX = g++
 
 CFLAGS = -std=c++11 -O3
-CFLAGS += -I lib/glfw/include 
+CFLAGS += -I lib/glfw/include -IGLEW
+CFLAGS += -g -glldb
 
-LDFLAGS = lib/glfw/src/libglfw3.a
+LDFLAGS = lib/glfw/src/libglfw3.a -lGLEW
 
 SRC = $(wildcard src/*.cpp)
 OBJS = $(SRC:.cpp=.o)
@@ -56,4 +57,5 @@ ${TEST_OBJS}:%.o: %.cpp
 
 clean:
 	rm -r build
+	rm ${OBJS}
 	

@@ -1,0 +1,144 @@
+\hypertarget{class_chunk}{}\doxysection{Chunk Class Reference}
+\label{class_chunk}\index{Chunk@{Chunk}}
+
+
+A 8x8 chunk of either dead or awake cells. Is a chunk of cells within a grid. Cells are just boolean values (true = awake, false = dead). Has a 2d-\/position within a grid.  
+
+
+
+
+{\ttfamily \#include $<$Chunk.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chunk_a759921ebbe216d0d5320f5f9b9ad8c82}\label{class_chunk_a759921ebbe216d0d5320f5f9b9ad8c82}} 
+enum \mbox{\hyperlink{class_chunk_a759921ebbe216d0d5320f5f9b9ad8c82}{Chunk\+Border\+Bit}} \{ {\bfseries TOP} = 0b00000001
+, {\bfseries RIGHT} = 0b00000010
+, {\bfseries BOTTOM} = 0b00000100
+, {\bfseries LEFT} = 0b00001000
+ \}
+\begin{DoxyCompactList}\small\item\em Specifies which chunkborder has awake cells. Using bitwise OR you can combine those borders to specify whether multiple chunkborders have living cells. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chunk_a2b23772294f7b6e400c8ff1485bd9552}\label{class_chunk_a2b23772294f7b6e400c8ff1485bd9552}} 
+{\bfseries Chunk} (i64 posX, i64 posY)
+\begin{DoxyCompactList}\small\item\em Initializes the chunk at the given 2d-\/position within a grid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chunk_a7c694b84a8466a932570d468b2cb434a}\label{class_chunk_a7c694b84a8466a932570d468b2cb434a}} 
+i64 {\bfseries index} ()
+\begin{DoxyCompactList}\small\item\em Calculates an index, that can be sorted after in a Grid. Maybe not needed. \end{DoxyCompactList}\item 
+u8 \mbox{\hyperlink{class_chunk_a05564a457f2703667cada6bc1d002261}{check\+\_\+borders}} ()
+\begin{DoxyCompactList}\small\item\em Checks which of the chunk borders have a awake cell. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chunk_a73994a92a35155d85975cda76f2601b4}\label{class_chunk_a73994a92a35155d85975cda76f2601b4}} 
+void {\bfseries clear} ()
+\begin{DoxyCompactList}\small\item\em Kills every cell in a chunk. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chunk_ab0e0bcd5105806989dbba662b33795e6}{wake}} (i64 x, i64 y)
+\begin{DoxyCompactList}\small\item\em Wakes up the cell at the given coords within a chunk. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chunk_ae11e6e32030afd1da17a21b8d26de5c7}{kill}} (i64 x, i64 y)
+\begin{DoxyCompactList}\small\item\em Kills the cell at the given coords within a chunk. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_chunk_a3b62680f1f722836a58e3c656f33b9a5}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renders the chunk in cout. \end{DoxyCompactList}\item 
+i64 \mbox{\hyperlink{class_chunk_acbfc99feb124b4abf2c55bc848237d63}{number\+\_\+of\+\_\+awake\+\_\+cells}} ()
+\begin{DoxyCompactList}\small\item\em Counts the number of awake cells within a chunk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chunk_aea9b48e0bf60d0917f94b236eee6ecf5}\label{class_chunk_aea9b48e0bf60d0917f94b236eee6ecf5}} 
+bool $\ast$ {\bfseries array}
+\begin{DoxyCompactList}\small\item\em The actual pointer to the array of cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_chunk_abb46ce8b8ada367e0e6469d16f2880ee}\label{class_chunk_abb46ce8b8ada367e0e6469d16f2880ee}} 
+\mbox{\hyperlink{structv2}{vec2}}$<$ i64 $>$ {\bfseries pos}
+\begin{DoxyCompactList}\small\item\em The 2d-\/position within a grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A 8x8 chunk of either dead or awake cells. Is a chunk of cells within a grid. Cells are just boolean values (true = awake, false = dead). Has a 2d-\/position within a grid. 
+
+\begin{DoxySeeAlso}{See also}
+Grid 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_chunk_a05564a457f2703667cada6bc1d002261}\label{class_chunk_a05564a457f2703667cada6bc1d002261}} 
+\index{Chunk@{Chunk}!check\_borders@{check\_borders}}
+\index{check\_borders@{check\_borders}!Chunk@{Chunk}}
+\doxysubsubsection{\texorpdfstring{check\_borders()}{check\_borders()}}
+{\footnotesize\ttfamily u8 Chunk\+::check\+\_\+borders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks which of the chunk borders have a awake cell. 
+
+\begin{DoxyReturn}{Returns}
+A u8 which 4 least significant bits give, whether the borders have awake cells. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_chunk_a759921ebbe216d0d5320f5f9b9ad8c82}{Chunk\+Border\+Bit}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_chunk_ae11e6e32030afd1da17a21b8d26de5c7}\label{class_chunk_ae11e6e32030afd1da17a21b8d26de5c7}} 
+\index{Chunk@{Chunk}!kill@{kill}}
+\index{kill@{kill}!Chunk@{Chunk}}
+\doxysubsubsection{\texorpdfstring{kill()}{kill()}}
+{\footnotesize\ttfamily void Chunk\+::kill (\begin{DoxyParamCaption}\item[{i64}]{x,  }\item[{i64}]{y }\end{DoxyParamCaption})}
+
+
+
+Kills the cell at the given coords within a chunk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coord of the cell. \\
+\hline
+{\em y} & The y-\/coord of the cell. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_chunk_acbfc99feb124b4abf2c55bc848237d63}\label{class_chunk_acbfc99feb124b4abf2c55bc848237d63}} 
+\index{Chunk@{Chunk}!number\_of\_awake\_cells@{number\_of\_awake\_cells}}
+\index{number\_of\_awake\_cells@{number\_of\_awake\_cells}!Chunk@{Chunk}}
+\doxysubsubsection{\texorpdfstring{number\_of\_awake\_cells()}{number\_of\_awake\_cells()}}
+{\footnotesize\ttfamily i64 Chunk\+::number\+\_\+of\+\_\+awake\+\_\+cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts the number of awake cells within a chunk. 
+
+\begin{DoxyReturn}{Returns}
+Number of awake cells. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_chunk_a3b62680f1f722836a58e3c656f33b9a5}\label{class_chunk_a3b62680f1f722836a58e3c656f33b9a5}} 
+\index{Chunk@{Chunk}!render@{render}}
+\index{render@{render}!Chunk@{Chunk}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Chunk\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renders the chunk in cout. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]Open\+GL used for rendering. \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_chunk_ab0e0bcd5105806989dbba662b33795e6}\label{class_chunk_ab0e0bcd5105806989dbba662b33795e6}} 
+\index{Chunk@{Chunk}!wake@{wake}}
+\index{wake@{wake}!Chunk@{Chunk}}
+\doxysubsubsection{\texorpdfstring{wake()}{wake()}}
+{\footnotesize\ttfamily void Chunk\+::wake (\begin{DoxyParamCaption}\item[{i64}]{x,  }\item[{i64}]{y }\end{DoxyParamCaption})}
+
+
+
+Wakes up the cell at the given coords within a chunk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coord of the cell. \\
+\hline
+{\em y} & The y-\/coord of the cell. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Chunk.\+h\item 
+src/Chunk.\+cpp\end{DoxyCompactItemize}

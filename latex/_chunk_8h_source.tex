@@ -1,0 +1,47 @@
+\hypertarget{_chunk_8h_source}{}\doxysection{Chunk.\+h}
+\label{_chunk_8h_source}\index{src/Chunk.h@{src/Chunk.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CHUNK\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CHUNK\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}int\_types.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Vector.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_chunk}{Chunk}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool}\& cell\_at\_pos(i64 x, i64 y);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool}* \mbox{\hyperlink{class_chunk_aea9b48e0bf60d0917f94b236eee6ecf5}{array}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{32     \mbox{\hyperlink{structv2}{vec2<i64>}} \mbox{\hyperlink{class_chunk_abb46ce8b8ada367e0e6469d16f2880ee}{pos}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_chunk}{Chunk}}(i64 posX, i64 posY);}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_chunk}{\string~Chunk}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{44     i64 \mbox{\hyperlink{class_chunk_a7c694b84a8466a932570d468b2cb434a}{index}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{51     u8 \mbox{\hyperlink{class_chunk_a05564a457f2703667cada6bc1d002261}{check\_borders}}();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chunk_a73994a92a35155d85975cda76f2601b4}{clear}}();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chunk_ab0e0bcd5105806989dbba662b33795e6}{wake}}(i64 x, i64 y);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chunk_ae11e6e32030afd1da17a21b8d26de5c7}{kill}}(i64 x, i64 y);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chunk_a3b62680f1f722836a58e3c656f33b9a5}{render}}();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{82     i64 \mbox{\hyperlink{class_chunk_acbfc99feb124b4abf2c55bc848237d63}{number\_of\_awake\_cells}}();}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{90     \textcolor{keyword}{enum} \mbox{\hyperlink{class_chunk_a759921ebbe216d0d5320f5f9b9ad8c82}{ChunkBorderBit}} \{}
+\DoxyCodeLine{91         TOP = 0b00000001,}
+\DoxyCodeLine{92         RIGHT = 0b00000010,}
+\DoxyCodeLine{93         BOTTOM = 0b00000100,}
+\DoxyCodeLine{94         LEFT = 0b00001000,}
+\DoxyCodeLine{95     \};}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

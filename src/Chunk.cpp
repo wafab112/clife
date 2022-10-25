@@ -42,19 +42,19 @@ u8 Chunk::check_borders() {
     u8 borders{0};
     for (int i = 0; i<8; i++) {
         if (array[i]) {
-            borders |= (u8) Chunk_Border_Bit::TOP;
+            borders |= (u8) ChunkBorderBit::TOP;
         }
 
         if (array[63 - i]) {
-            borders |= (u8) Chunk_Border_Bit::BOTTOM;
+            borders |= (u8) ChunkBorderBit::BOTTOM;
         }
 
         if (array[i * 8]) {
-            borders |= (u8) Chunk_Border_Bit::LEFT;
+            borders |= (u8) ChunkBorderBit::LEFT;
         }
 
         if (array[i * 8 + 7]) {
-            borders |= (u8) Chunk_Border_Bit::RIGHT;
+            borders |= (u8) ChunkBorderBit::RIGHT;
         }
     }
 

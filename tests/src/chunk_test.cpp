@@ -20,7 +20,7 @@ TEST_SUITE("chunk test borders") {
         SUBCASE("top") {
             c.wake(1, 0);
 
-            borders = Chunk_Border_Bit::TOP;
+            borders = ChunkBorderBit::TOP;
 
             CHECK(c.check_borders() == borders);
         }
@@ -29,7 +29,7 @@ TEST_SUITE("chunk test borders") {
         SUBCASE("right") {
             c.wake(7, 1);
 
-            borders = Chunk_Border_Bit::RIGHT;
+            borders = ChunkBorderBit::RIGHT;
 
             CHECK(c.check_borders() == borders);
         }
@@ -38,7 +38,7 @@ TEST_SUITE("chunk test borders") {
         SUBCASE("bottom") {
             c.wake(1, 7);
 
-            borders = Chunk_Border_Bit::BOTTOM;
+            borders = ChunkBorderBit::BOTTOM;
 
             CHECK(c.check_borders() == borders);
         }
@@ -47,7 +47,7 @@ TEST_SUITE("chunk test borders") {
         SUBCASE("left") {
             c.wake(0, 1);
 
-            borders = Chunk_Border_Bit::LEFT;
+            borders = ChunkBorderBit::LEFT;
 
             CHECK(c.check_borders() == borders);
         }
